@@ -18,6 +18,7 @@ public class Main {
                     Education.values()[new Random().nextInt(Education.values().length)])
             );
         }
+
         Stream<Person> streamYoungPerson = persons.stream();
         Stream<Person> streamRecruits = persons.stream();
         Stream<Person> streamWorkingSpecialists = persons.stream();
@@ -32,6 +33,7 @@ public class Main {
                 .filter(person -> person.getAge() <= 27)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
+
         int count = 0;
         for (String recruit: listRecruits) {
             count++;
@@ -44,6 +46,7 @@ public class Main {
                 .filter(person -> person.getSex() == Sex.WOMAN? person.getAge() <= 60: person.getAge() <= 65)
                 .sorted(Comparator.comparing(person -> person.getFamily()))
                 .collect(Collectors.toList());
+
         count = 0;
         for (Person person: sortedListWorkingSpecialists) {
             count++;
